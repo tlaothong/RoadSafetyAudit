@@ -10,35 +10,35 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ListPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp, {
-      menuType: 'push',
-      platforms: {
-        ios: {
-          menuType: 'reveal'
-        },
-        android: {
-          menuType: 'overlay'
-        }
-      }
-    }),
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+	declarations: [
+		MyApp,
+		HomePage,
+		ListPage
+	],
+	imports: [
+		BrowserModule,
+		IonicModule.forRoot(MyApp, {
+			menuType: 'push',
+			platforms: {
+				ios: {
+					menuType: 'reveal'
+				},
+				android: {
+					menuType: 'overlay'
+				}
+			}
+		}),
+	],
+	bootstrap: [IonicApp],
+	entryComponents: [
+		MyApp,
+		HomePage,
+		ListPage
+	],
+	providers: [
+		StatusBar,
+		SplashScreen,
+		{provide: ErrorHandler, useClass: IonicErrorHandler}
+	]
 })
 export class AppModule {}
