@@ -12,7 +12,7 @@ export class HomePage {
 	}
 
 	public newProject() {
-		this.navCtrl.push('This will Error!');
+		this.navCtrl.push('ProjectCreatePage');
 	}
 
 }
