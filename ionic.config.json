@@ -1,0 +1,8 @@
+{
+  "name": "RoadSafetyAudit",
+  "app_id": "826060d6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
