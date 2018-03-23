@@ -11,8 +11,4 @@ export class HomePage {
 
 	}
 
-	public newProject() {
-		this.navCtrl.push('ProjectCreatePage');
-	}
-
 }
