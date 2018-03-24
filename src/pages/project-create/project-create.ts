@@ -20,6 +20,7 @@ export class ProjectCreatePage {
 
 	public doCreateProject() {
 		this.navCtrl.pop();
+		this.navCtrl.push('ProjectWizardPage');
 	}
 
 	ionViewDidLoad() {
