@@ -18,6 +18,10 @@ export class ProjectCreatePage {
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
 	}
 
+	public doCreateProject() {
+		this.navCtrl.pop();
+	}
+
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ProjectCreatePage');
 	}
