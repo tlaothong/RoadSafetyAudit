@@ -13,6 +13,48 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="form">
+
+  <ion-card>
+    <ion-card-header>
+      ขั้นตอน
+    </ion-card-header>
+    <ion-list radio-group>
+      <ion-item>
+        <ion-label>ออกแบบ</ion-label>
+        <ion-radio value="1"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>ระหว่างการก่อสร้าง</ion-label>
+        <ion-radio value="2"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>ถนนที่เปิดให้บริการแล้ว</ion-label>
+        <ion-radio value="3"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      เส้นทาง
+    </ion-card-header>
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="cart" item-start></ion-icon>
+        Shopping
+      </button>
+        <button ion-item>
+        <ion-icon name="paw" item-start></ion-icon>
+        Dog Park
+      </button>
+        <button ion-item>
+        <ion-icon name="planet" item-start></ion-icon>
+        Space
+      </button>
+      </ion-list>
+  </ion-card>
+
+  <button ion-button full >สร้าง</button>
 
 </ion-content>
