@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 /**
  * Generated class for the ProjectWizardPage page.
@@ -18,11 +18,33 @@ export class ProjectWizardPage {
   public showPrev = true;
   public showNext = true;
 
+  @ViewChild('slides') slides: Slides;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  public next() {
+    this.slides.slideNext();
+  }
+
+  public prev() {
+    this.slides.slidePrev();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProjectWizardPage');
+  }
+
+  ionViewWillEnter() {
+    this.slides.update();
+
+    this.showPrev = !this.slides.isBeginning();
+    this.showNext = !this.slides.isEnd();
+  }
+
+  onSlideChangeStart(slider: Slides) {
+    this.showPrev = !slider.isBeginning();
+    this.showNext = !slider.isEnd();
   }
 
 }

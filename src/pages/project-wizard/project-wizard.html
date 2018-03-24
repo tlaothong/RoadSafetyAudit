@@ -8,11 +8,15 @@
 
   <ion-navbar>
       <ion-buttons start *ngIf="showPrev">
-        <button ion-button color="primary">ก่อนหน้า</button>
+        <button ion-button color="primary" (click)="prev()" >
+          <ion-icon name="ios-arrow-dropleft"></ion-icon>
+        </button>
       </ion-buttons>
       <ion-title>รายละเอียดโครงการ</ion-title>
       <ion-buttons end *ngIf="showNext">
-        <button ion-button color="primary">ต่อไป</button>
+        <button ion-button color="primary" (click)="next()">
+          <ion-icon name="ios-arrow-dropright"></ion-icon>
+        </button>
       </ion-buttons>
   </ion-navbar>
 
@@ -21,7 +25,7 @@
 
 <ion-content padding>
 
-  <ion-slides pager paginationType="bullets">
+  <ion-slides #slides pager paginationType="bullets" (ionSlideWillChange)="onSlideChangeStart($event)">
     <ion-slide>
       <project-check-points></project-check-points>
     </ion-slide>
