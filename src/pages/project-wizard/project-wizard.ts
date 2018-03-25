@@ -24,6 +24,10 @@ export class ProjectWizardPage {
   }
 
   public next() {
+    if (this.slides.isEnd()) {
+      this.navCtrl.pop();
+      this.navCtrl.push("ProjectCheckMasterPage");
+    }
     this.slides.slideNext();
   }
 
@@ -43,12 +47,10 @@ export class ProjectWizardPage {
     this.slides.update();
 
     this.showPrev = !this.slides.isBeginning();
-    this.showNext = !this.slides.isEnd();
   }
 
   onSlideChangeStart(slider: Slides) {
     this.showPrev = !slider.isBeginning();
-    this.showNext = !slider.isEnd();
   }
 
 }
