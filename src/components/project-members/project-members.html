@@ -1,4 +1,33 @@
-<!-- Generated template for the ProjectMembersComponent component -->
-<div>
-  สมาชิกผู้ร่วมตรวจสอบ
-</div>
+<h2>สมาชิกในโครงการตรวจสอบ</h2>
+
+<form (ngSubmit)="saveMembers()" class="form">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="pin" item-start></ion-icon>
+      เพิ่มผู้ร่วมโครงการ
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-label>ID</ion-label>
+        <ion-input type="text"></ion-input>
+        <ion-select>
+          <ion-option value="1">หัวหน้าทีมตรวจสอบความปลอดภัยงานทาง</ion-option>
+          <ion-option value="2">ผู้ตรวจสอบความปลอดภัยงานทางอาวุโส (Senior Auditor)</ion-option>
+          <ion-option value="3" selected>ผู้ตรวจสอบความปลอดภัยงานทางระดับกลาง (Auditor)</ion-option>
+          <ion-option value="4">ผู้ตรวจสอบความปลอดภัยงานทางระดับต้น (Inspector)</ion-option>
+          <ion-option value="5">ผู้ช่วยผู้ตรวจสอบความปลอดภัยงานทาง</ion-option>
+          <ion-option value="6">ผู้ร่วมงานตำแหน่งอื่นๆ</ion-option>
+        </ion-select>  
+      </ion-item>
+      <ion-item>
+        <button ion-button (click)="addMember()" block>
+          <span> </span>
+          <ion-icon name="add"></ion-icon>
+          เพิ่ม
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+</form>

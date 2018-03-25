@@ -1,4 +1,73 @@
-<!-- Generated template for the ProjectCheckPointsComponent component -->
-<div>
-  จุดที่ทำการตรวจสอบ
-</div>
+<h2>ช่วงที่ทำการตรวจสอบ</h2>
+
+<form (ngSubmit)="saveCheckPoints()" class="form">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="pin" item-start></ion-icon>
+      กม.
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-label>กม. เริ่มต้น</ion-label>
+        <ion-input type="number" placeholder="เช่น 0" ></ion-input>
+        <ion-select>
+          <ion-option value="000" selected>+000</ion-option>
+          <ion-option value="100">+100</ion-option>
+          <ion-option value="200">+200</ion-option>
+          <ion-option value="300">+300</ion-option>
+          <ion-option value="400">+400</ion-option>
+          <ion-option value="500">+500</ion-option>
+          <ion-option value="600">+600</ion-option>
+          <ion-option value="700">+700</ion-option>
+          <ion-option value="800">+800</ion-option>
+          <ion-option value="900">+900</ion-option>
+        </ion-select>  
+      </ion-item>
+      <ion-item>
+        <ion-label>กม. สิ้นสุด</ion-label>
+        <ion-input type="number" placeholder="เช่น 0" ></ion-input>
+        <ion-select>
+          <ion-option value="000" selected>+000</ion-option>
+          <ion-option value="100">+100</ion-option>
+          <ion-option value="200">+200</ion-option>
+          <ion-option value="300">+300</ion-option>
+          <ion-option value="400">+400</ion-option>
+          <ion-option value="500">+500</ion-option>
+          <ion-option value="600">+600</ion-option>
+          <ion-option value="700">+700</ion-option>
+          <ion-option value="800">+800</ion-option>
+          <ion-option value="900">+900</ion-option>
+        </ion-select>  
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="locate" item-start></ion-icon>
+      พิกัด
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          พิกัด เริ่มต้น
+        </ion-label>
+        <ion-input type="number" placeholder="ละติจูด" ></ion-input>
+        <ion-input type="number" placeholder="ลองกิจูด" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          พิกัด สิ้นสุด
+        </ion-label>
+        <ion-input type="number" placeholder="ละติจูด" ></ion-input>
+        <ion-input type="number" placeholder="ลองกิจูด" ></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <div padding>
+    <button ion-button block>บันทึก</button>
+  </div>
+
+</form>

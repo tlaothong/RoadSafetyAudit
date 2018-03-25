@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the ProjectCheckPointsComponent component.
@@ -12,8 +12,14 @@ import { Component } from '@angular/core';
 })
 export class ProjectCheckPointsComponent {
 
+  @Output() stepDone: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor() {
     console.log('Hello ProjectCheckPointsComponent Component');
+  }
+
+  public saveCheckPoints() {
+    this.stepDone.emit(true);
   }
 
 }

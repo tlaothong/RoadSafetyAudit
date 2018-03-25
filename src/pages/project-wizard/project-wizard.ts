@@ -31,6 +31,10 @@ export class ProjectWizardPage {
     this.slides.slidePrev();
   }
 
+  public checkPointsDone() {
+    this.next();
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProjectWizardPage');
   }

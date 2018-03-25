@@ -16,4 +16,8 @@ export class ProjectMembersComponent {
     console.log('Hello ProjectMembersComponent Component');
   }
 
+  public addMember() {}
+
+  public saveMembers() {}
+
 }
