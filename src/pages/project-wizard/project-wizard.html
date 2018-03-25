@@ -23,14 +23,18 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <ion-slides #slides pager paginationType="bullets" (ionSlideWillChange)="onSlideChangeStart($event)">
     <ion-slide>
-      <project-check-points (stepDone)="checkPointsDone()"></project-check-points>
+      <ion-content padding>
+        <project-check-points (stepDone)="checkPointsDone()"></project-check-points>
+      </ion-content>
     </ion-slide>
     <ion-slide>
-      <project-members></project-members>
+      <ion-content padding>
+        <project-members></project-members>
+      </ion-content>
     </ion-slide>
   </ion-slides>
 
