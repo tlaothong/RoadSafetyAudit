@@ -15,4 +15,61 @@
 
 <ion-content padding>
 
+  <ion-card>
+      <ion-card-header>
+        {{ l0name }}
+      </ion-card-header>
+      <ion-list>
+        <ion-item>
+          <ion-label>ผลการตรวจสอบ</ion-label>
+          <ion-select>
+            <ion-option value="y">ใช่</ion-option>
+            <ion-option value="n">ไม่ใช่</ion-option>
+            <ion-option value="-">-</ion-option>
+            <ion-option value="">N/A</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+  </ion-card>
+
+  <ion-card *ngFor="let l1 of checkLists">
+    <ion-card-header>
+      {{ l1.name }}
+    </ion-card-header>
+    <ion-list *ngIf="l1.checkable">
+      <ion-item>
+          <ion-label>ผลการตรวจสอบ</ion-label>
+          <ion-select>
+            <ion-option value="y">ใช่</ion-option>
+            <ion-option value="n">ไม่ใช่</ion-option>
+            <ion-option value="-">-</ion-option>
+            <ion-option value="">N/A</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+        <button ion-button block>ใส่รายละเอียด</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-card *ngFor="let l2 of l1.items">
+      <ion-card-header>
+        {{ l2.name }}
+      </ion-card-header>
+      <ion-list *ngIf="l2.checkable">
+        <ion-item>
+            <ion-label>ผลการตรวจสอบ</ion-label>
+            <ion-select>
+              <ion-option value="y">ใช่</ion-option>
+              <ion-option value="n">ไม่ใช่</ion-option>
+              <ion-option value="-">-</ion-option>
+              <ion-option value="">N/A</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+          <button ion-button block>ใส่รายละเอียด</button>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </ion-card>
+
 </ion-content>

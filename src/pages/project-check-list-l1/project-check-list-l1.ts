@@ -16,9 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ProjectCheckListL1Page {
 
   public checkByTitle;
+  public checkLists;
+  public l0name;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.checkByTitle = this.navParams.data.checkBy;
+    this.checkLists = this.navParams.data.l0.items;
+    this.l0name = this.navParams.data.l0.name;
   }
 
   ionViewDidLoad() {
