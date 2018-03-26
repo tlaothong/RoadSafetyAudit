@@ -22,8 +22,11 @@ export class ProjectRepoServiceProvider {
   }
 
   private id = 0;
-  public createProject(prjName: string) {
-    this.projects.push(new Project(++this.id, prjName));
+  public createProject(prjName: string, startN: number, startE: number, endN: number, endE: number) {
+    var prj = new Project(++this.id, prjName, startN, startE, endN, endE);
+    this.projects.push(prj);
+
+    return prj;
   }
 
 }

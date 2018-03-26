@@ -27,7 +27,7 @@
 
   <ion-slides #slides pager paginationType="bullets" (ionSlideWillChange)="onSlideChangeStart($event)">
     <ion-slide>
-        <project-check-points (stepDone)="checkPointsDone()"></project-check-points>
+        <project-check-points (stepDone)="checkPointsDone()" [project]="project"></project-check-points>
     </ion-slide>
     <ion-slide>
         <project-members></project-members>

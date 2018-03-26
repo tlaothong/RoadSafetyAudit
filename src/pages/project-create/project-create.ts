@@ -25,6 +25,8 @@ export class ProjectCreatePage {
 	public roadList;
 	public selectedRoad;
 
+	public createdProject;
+
 	constructor(public navCtrl: NavController, public navParams: NavParams, private offices: RoadsAndOfficesProvider, private projectRepo: ProjectRepoServiceProvider) {
 	}
 
@@ -45,9 +47,10 @@ export class ProjectCreatePage {
 	}
 
 	public doCreateProject() {
-		this.projectRepo.createProject(this.selectedRoad.road);
+		this.createdProject = this.projectRepo.createProject(this.selectedRoad.road,
+			this.selectedRoad.startN, this.selectedRoad.startE, this.selectedRoad.endN, this.selectedRoad.endE);
 		this.navCtrl.pop();
-		this.navCtrl.push('ProjectWizardPage');
+		this.navCtrl.push('ProjectWizardPage', this.createdProject);
 	}
 
 	ionViewDidLoad() {

@@ -53,15 +53,15 @@
         <ion-label>
           พิกัด เริ่มต้น
         </ion-label>
-        <ion-input type="number" placeholder="ละติจูด" ></ion-input>
-        <ion-input type="number" placeholder="ลองกิจูด" ></ion-input>
+        <ion-input type="number" placeholder="ละติจูด" [(ngModel)]="project.startN" name="startN"></ion-input>
+        <ion-input type="number" placeholder="ลองกิจูด" [(ngModel)]="project.startE" name="startE"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>
           พิกัด สิ้นสุด
         </ion-label>
-        <ion-input type="number" placeholder="ละติจูด" ></ion-input>
-        <ion-input type="number" placeholder="ลองกิจูด" ></ion-input>
+        <ion-input type="number" placeholder="ละติจูด" [(ngModel)]="project.endN" name="endN"></ion-input>
+        <ion-input type="number" placeholder="ลองกิจูด" [(ngModel)]="project.endE" name="endE"></ion-input>
       </ion-item>
     </ion-list>
   </ion-card>

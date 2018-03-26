@@ -18,9 +18,12 @@ export class ProjectWizardPage {
   public showPrev = true;
   public showNext = true;
 
+  public project;
+
   @ViewChild('slides') slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.project = this.navParams.data;
   }
 
   public next() {
