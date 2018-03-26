@@ -15,78 +15,22 @@
 
 <ion-content padding>
 
-  <h2>ช่วงที่ทำการตรวจสอบ</h2>
-
-  <form class="form">
-
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="pin" item-start></ion-icon>
-        กม.
-      </ion-card-header>
-      <ion-list>
-        <ion-item>
-          <ion-label>กม. เริ่มต้น</ion-label>
-          <ion-input type="number" placeholder="เช่น 0" ></ion-input>
-          <ion-select>
-            <ion-option value="000" selected>+000</ion-option>
-            <ion-option value="100">+100</ion-option>
-            <ion-option value="200">+200</ion-option>
-            <ion-option value="300">+300</ion-option>
-            <ion-option value="400">+400</ion-option>
-            <ion-option value="500">+500</ion-option>
-            <ion-option value="600">+600</ion-option>
-            <ion-option value="700">+700</ion-option>
-            <ion-option value="800">+800</ion-option>
-            <ion-option value="900">+900</ion-option>
-          </ion-select>  
-        </ion-item>
-        <ion-item>
-          <ion-label>กม. สิ้นสุด</ion-label>
-          <ion-input type="number" placeholder="เช่น 0" ></ion-input>
-          <ion-select>
-            <ion-option value="000" selected>+000</ion-option>
-            <ion-option value="100">+100</ion-option>
-            <ion-option value="200">+200</ion-option>
-            <ion-option value="300">+300</ion-option>
-            <ion-option value="400">+400</ion-option>
-            <ion-option value="500">+500</ion-option>
-            <ion-option value="600">+600</ion-option>
-            <ion-option value="700">+700</ion-option>
-            <ion-option value="800">+800</ion-option>
-            <ion-option value="900">+900</ion-option>
-          </ion-select>  
-        </ion-item>
-      </ion-list>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="locate" item-start></ion-icon>
-        พิกัด
-      </ion-card-header>
-      <ion-list>
-        <ion-item>
-          <ion-label>
-            พิกัด เริ่มต้น
-          </ion-label>
-          <ion-input type="number" placeholder="ละติจูด" ></ion-input>
-          <ion-input type="number" placeholder="ลองกิจูด" ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            พิกัด สิ้นสุด
-          </ion-label>
-          <ion-input type="number" placeholder="ละติจูด" ></ion-input>
-          <ion-input type="number" placeholder="ลองกิจูด" ></ion-input>
-        </ion-item>
-      </ion-list>
-    </ion-card>
-
-    <div padding>
-      <button ion-button block>บันทึก</button>
-    </div>
-
-  </form>
+  <ion-card>
+    <ion-card-header>
+      เลือกรูปแบบการตรวจสอบ
+    </ion-card-header>
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
+        ด้วยระบบสารสนเทศ
+        <ion-icon name="arrow-forward" item-end></ion-icon>
+      </button>
+      <button ion-item>
+        <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
+        จากภาคสนาม
+        <ion-icon name="arrow-forward" item-end></ion-icon>
+      </button>
+    </ion-list>
+  </ion-card>
 
 </ion-content>
