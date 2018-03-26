@@ -18,6 +18,7 @@ export class ProjectCheckListL1Page {
   public checkByTitle;
   public checkLists;
   public l0name;
+  public commentpage = "ProjectCheckListCommentPage";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.checkByTitle = this.navParams.data.checkBy;

@@ -47,7 +47,7 @@
           </ion-select>
       </ion-item>
       <ion-item>
-        <button ion-button block>ใส่รายละเอียด</button>
+        <button ion-button block [navPush]="commentpage" [navParams]="l1">บันทึกความเห็น</button>
       </ion-item>
     </ion-list>
 
@@ -66,7 +66,7 @@
             </ion-select>
         </ion-item>
         <ion-item>
-          <button ion-button block>ใส่รายละเอียด</button>
+          <button ion-button block [navPush]="commentpage" [navParams]="l2">บันทึกความเห็น</button>
         </ion-item>
       </ion-list>
     </ion-card>
