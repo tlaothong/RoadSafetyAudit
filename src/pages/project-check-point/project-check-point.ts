@@ -15,7 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProjectCheckPointPage {
 
+  public project;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.project = this.navParams.data;
+  }
+
+  public checkPointsDone() {
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {

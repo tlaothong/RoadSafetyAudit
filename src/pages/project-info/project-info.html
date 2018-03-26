@@ -15,4 +15,38 @@
 
 <ion-content padding>
 
+  <h2>ข้อมูลโครงการ</h2>
+
+  <ion-card>
+    <ion-card-header>
+      ชื่อโครงการ
+    </ion-card-header>
+    <p>{{ project.name }}</p>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      ช่วงที่ทำการตรวจสอบ
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-label>ละติจูด เริ่มต้น</ion-label>
+        <ion-input disabled="true" [value]="project.startN"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>ลองกิจูด เริ่มต้น</ion-label>
+        <ion-input disabled="true" [value]="project.startE"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>ละติจูด สิ้นสุด</ion-label>
+        <ion-input disabled="true" [value]="project.endN"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>ลองกิจูด สิ้นสุด</ion-label>
+        <ion-input disabled="true" [value]="project.endE"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button [navPush]="checkptpage" [navParams]="project">แก้ไข</button>
+  </ion-card>
+  
 </ion-content>
