@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -15,11 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProjectCheckMasterPage {
 
+  @Input() project;
+
   public l0page = 'ProjectCheckListL0Page';
   public byIT = "ตรวจสอบจากระบบสารสนเทศ";
   public byFields = "ตรวจสอบจากงานภาคสนาม";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    if (this.navParams.data) {
+      this.project = this.navParams.data;
+    }
   }
 
   ionViewDidLoad() {

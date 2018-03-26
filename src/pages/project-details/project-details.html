@@ -4,12 +4,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>โครงการ</ion-title>
+    <ion-title>โครงการ{{ project.name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="ข้อมูลโครงการ" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="การตรวจสอบ" tabIcon="md-checkmark-circle-outline"></ion-tab>
+  <ion-tab [root]="tab1Root" [rootParams]="project" tabTitle="ข้อมูลโครงการ" tabIcon="information-circle"></ion-tab>
+  <ion-tab [root]="tab2Root" [rootParams]="project" tabTitle="การตรวจสอบ" tabIcon="md-checkmark-circle-outline"></ion-tab>
 </ion-tabs>

@@ -42,6 +42,7 @@ export class MyApp {
 	}
 
 	public logOut() {
+		this.nav.setRoot(HomePage);
 		let alert = this.alertCtrl.create({
 			title: 'Log out succeeded!',
 			subTitle: 'You\'ve logged out.',

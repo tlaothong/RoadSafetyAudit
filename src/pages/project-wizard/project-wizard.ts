@@ -29,7 +29,7 @@ export class ProjectWizardPage {
   public next() {
     if (this.slides.isEnd()) {
       this.navCtrl.pop();
-      this.navCtrl.push("ProjectCheckMasterPage");
+      this.navCtrl.push("ProjectCheckMasterPage", this.project);
     }
     this.slides.slideNext();
   }

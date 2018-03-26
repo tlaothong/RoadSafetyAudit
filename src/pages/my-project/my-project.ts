@@ -17,6 +17,7 @@ import { ProjectRepoServiceProvider } from '../../providers/project-repo-service
 export class MyProjectPage {
 
 	public projects;
+	public detailsPage = "ProjectDetailsPage";
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private projectRepo: ProjectRepoServiceProvider) {
 	}

@@ -22,7 +22,7 @@
   <button ion-button secondary (click)="newProject()">สร้างโครงการ</button>
 
   <ion-list>
-    <button ion-item *ngFor="let p of projects">
+    <button ion-item *ngFor="let p of projects" [navPush]="detailsPage" [navParams]="p" >
       {{ p.name }}
     </button>
   </ion-list>

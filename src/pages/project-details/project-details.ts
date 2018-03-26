@@ -18,7 +18,10 @@ export class ProjectDetailsPage {
   public tab1Root = 'ProjectInfoPage';
   public tab2Root = 'ProjectCheckMasterPage';
 
+  public project;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.project = this.navParams.data;
   }
 
   ionViewDidLoad() {
