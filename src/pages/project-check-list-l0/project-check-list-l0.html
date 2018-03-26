@@ -17,7 +17,7 @@
   <h3>รายการตรวจสอบความปลอดภัย</h3>
 
   <ion-list>
-    <button ion-item *ngFor="let l0 of checkLists" [navPush]="goL1Page(l0)" >
+    <button ion-item *ngFor="let l0 of checkLists" (click)="goL1Page(l0)" >
       <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
       {{ l0.name }}
       <ion-icon name="arrow-forward" item-end></ion-icon>
