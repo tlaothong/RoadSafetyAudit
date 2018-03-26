@@ -74,8 +74,8 @@
           <ion-icon name="logo-steam" item-start></ion-icon>
           <ion-label>สายทาง</ion-label>
           <!-- <ion-select formControlName="option3"> -->
-          <ion-select [(ngModel)]="selectedRoad" name="road">
-            <ion-option *ngFor="let r of roadList" >{{ r.road }}</ion-option>
+          <ion-select [(ngModel)]="selectedRoad" name="road" (ionChange)="roadChanged($event)">
+            <ion-option *ngFor="let r of roadList" [value]="r" >{{ r.road }}</ion-option>
           </ion-select>
         </ion-item>
       </ion-list>

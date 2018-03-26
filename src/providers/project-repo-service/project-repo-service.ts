@@ -1,0 +1,29 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Project } from '../../models/Project';
+
+/*
+  Generated class for the ProjectRepoServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+@Injectable()
+export class ProjectRepoServiceProvider {
+
+  private projects: Project[] = [];
+
+  constructor(public http: HttpClient) {
+    console.log('Hello ProjectRepoServiceProvider Provider');
+  }
+
+  public listProjects() {
+    return this.projects;
+  }
+
+  private id = 0;
+  public createProject(prjName: string) {
+    this.projects.push(new Project(++this.id, prjName));
+  }
+
+}

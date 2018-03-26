@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RoadsAndOfficesProvider } from '../../providers/roads-and-offices/roads-and-offices';
+import { ProjectRepoServiceProvider } from '../../providers/project-repo-service/project-repo-service';
 
 /**
  * Generated class for the ProjectCreatePage page.
@@ -22,8 +23,9 @@ export class ProjectCreatePage {
 	public officesList;
 	public branchList;
 	public roadList;
+	public selectedRoad;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private offices: RoadsAndOfficesProvider) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private offices: RoadsAndOfficesProvider, private projectRepo: ProjectRepoServiceProvider) {
 	}
 
 	public regionChanged(evt) {
@@ -39,7 +41,11 @@ export class ProjectCreatePage {
 		this.roadList = this.offices.roads.filter(it => this.branchId == 1);
 	}
 
+	public roadChanged(evt) {
+	}
+
 	public doCreateProject() {
+		this.projectRepo.createProject(this.selectedRoad.road);
 		this.navCtrl.pop();
 		this.navCtrl.push('ProjectWizardPage');
 	}

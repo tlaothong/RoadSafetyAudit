@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RoadsAndOfficesProvider } from '../providers/roads-and-offices/roads-and-offices';
 import { HttpClientModule } from '@angular/common/http';
+import { ProjectRepoServiceProvider } from '../providers/project-repo-service/project-repo-service';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
 		StatusBar,
 		SplashScreen,
 		{provide: ErrorHandler, useClass: IonicErrorHandler},
-		RoadsAndOfficesProvider
+		RoadsAndOfficesProvider,
+    ProjectRepoServiceProvider
 	]
 })
 export class AppModule {}

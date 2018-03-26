@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProjectRepoServiceProvider } from '../../providers/project-repo-service/project-repo-service';
 
 /**
  * Generated class for the MyProjectPage page.
@@ -15,7 +16,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MyProjectPage {
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
+	public projects;
+
+	constructor(public navCtrl: NavController, public navParams: NavParams, private projectRepo: ProjectRepoServiceProvider) {
 	}
 
 	public newProject() {
@@ -24,6 +27,7 @@ export class MyProjectPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad MyProjectPage');
+		this.projects = this.projectRepo.listProjects();
 	}
 
 }
