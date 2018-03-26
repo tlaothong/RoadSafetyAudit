@@ -20,12 +20,12 @@
       เลือกรูปแบบการตรวจสอบ
     </ion-card-header>
     <ion-list>
-      <button ion-item>
+      <button ion-item [navPush]="l0page" [navParams]="byIT">
         <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
         ด้วยระบบสารสนเทศ
         <ion-icon name="arrow-forward" item-end></ion-icon>
       </button>
-      <button ion-item>
+      <button ion-item [navPush]="l0page" [navParams]="byFields">
         <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
         จากภาคสนาม
         <ion-icon name="arrow-forward" item-end></ion-icon>

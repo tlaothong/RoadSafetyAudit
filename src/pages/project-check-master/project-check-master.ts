@@ -15,6 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProjectCheckMasterPage {
 
+  public l0page = 'ProjectCheckListL0Page';
+  public byIT = "ตรวจสอบจากระบบสารสนเทศ";
+  public byFields = "ตรวจสอบจากงานภาคสนาม";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

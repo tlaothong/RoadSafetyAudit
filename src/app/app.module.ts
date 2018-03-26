@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { RoadsAndOfficesProvider } from '../providers/roads-and-offices/roads-and-offices';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectRepoServiceProvider } from '../providers/project-repo-service/project-repo-service';
+import { CheckListsProvider } from '../providers/check-lists/check-lists';
 
 @NgModule({
 	declarations: [
@@ -34,7 +35,8 @@ import { ProjectRepoServiceProvider } from '../providers/project-repo-service/pr
 		SplashScreen,
 		{provide: ErrorHandler, useClass: IonicErrorHandler},
 		RoadsAndOfficesProvider,
-    ProjectRepoServiceProvider
+    ProjectRepoServiceProvider,
+    CheckListsProvider
 	]
 })
 export class AppModule {}
