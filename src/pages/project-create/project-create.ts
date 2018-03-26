@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RoadsAndOfficesProvider } from '../../providers/roads-and-offices/roads-and-offices';
-import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the ProjectCreatePage page.
@@ -19,8 +18,10 @@ export class ProjectCreatePage {
 
 	public regionId
 	public officeId;
+	public branchId;
 	public officesList;
 	public branchList;
+	public roadList;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private offices: RoadsAndOfficesProvider) {
 	}
@@ -32,6 +33,10 @@ export class ProjectCreatePage {
 
 	public officeChanged(evt) {
 		this.branchList = this.offices.branches.filter(it => it.officeId == this.officeId);
+	}
+
+	public branchChanged(evt) {
+		this.roadList = this.offices.roads.filter(it => this.branchId == 1);
 	}
 
 	public doCreateProject() {

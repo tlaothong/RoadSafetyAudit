@@ -66,7 +66,7 @@
           <ion-label>
             หน่วยงาน
           </ion-label>
-          <ion-select>
+          <ion-select [(ngModel)]="branchId" (ionChange)="branchChanged($event)" name="branch">
               <ion-option *ngFor="let b of branchList" [value]="b.id">{{ b.branch }}</ion-option>
             </ion-select>  
         </ion-item>
@@ -74,10 +74,8 @@
           <ion-icon name="logo-steam" item-start></ion-icon>
           <ion-label>สายทาง</ion-label>
           <!-- <ion-select formControlName="option3"> -->
-          <ion-select>
-            <ion-option value="1" checked="true">1</ion-option>
-            <ion-option value="2">2</ion-option>
-            <ion-option value="3">3</ion-option>
+          <ion-select [(ngModel)]="selectedRoad" name="road">
+            <ion-option *ngFor="let r of roadList" >{{ r.road }}</ion-option>
           </ion-select>
         </ion-item>
       </ion-list>
