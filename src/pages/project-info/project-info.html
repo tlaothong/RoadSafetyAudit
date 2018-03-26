@@ -15,13 +15,11 @@
 
 <ion-content padding>
 
-  <h2>ข้อมูลโครงการ</h2>
-
   <ion-card>
     <ion-card-header>
       ชื่อโครงการ
     </ion-card-header>
-    <p>{{ project.name }}</p>
+    <p padding>{{ project.name }}</p>
   </ion-card>
 
   <ion-card>
@@ -45,8 +43,21 @@
         <ion-label>ลองกิจูด สิ้นสุด</ion-label>
         <ion-input disabled="true" [value]="project.endE"></ion-input>
       </ion-item>
+      <ion-item>
+        <button ion-button [navPush]="checkptpage" [navParams]="project" block>แก้ไข</button>
+      </ion-item>
     </ion-list>
-    <button ion-button [navPush]="checkptpage" [navParams]="project">แก้ไข</button>
   </ion-card>
-  
+
+  <ion-card>
+    <ion-card-header>
+      สมาชิกในโครงการ
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <button ion-button [navPush]="memberpage" [navParams]="project" block>แก้ไข</button>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
 </ion-content>

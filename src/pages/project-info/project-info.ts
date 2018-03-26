@@ -17,6 +17,7 @@ export class ProjectInfoPage {
 
   public project;
   public checkptpage = "ProjectCheckPointPage";
+  public memberpage = "ProjectMembersPage";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.project = this.navParams.data;
