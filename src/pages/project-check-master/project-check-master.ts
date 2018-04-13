@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
 /**
  * Generated class for the ProjectCheckMasterPage page.
@@ -21,7 +21,7 @@ export class ProjectCheckMasterPage {
   public byIT = "ตรวจสอบจากระบบสารสนเทศ";
   public byFields = "ตรวจสอบจากงานภาคสนาม";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private appCtrl: App) {
     if (this.navParams.data) {
       this.project = this.navParams.data;
     }
@@ -29,6 +29,10 @@ export class ProjectCheckMasterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProjectCheckMasterPage');
+  }
+
+  public goPage(page: any) {
+    this.appCtrl.getRootNav().push(this.l0page, page);
   }
 
 }

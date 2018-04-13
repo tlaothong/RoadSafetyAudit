@@ -19,56 +19,48 @@
       <ion-card-header>
         {{ l0name }}
       </ion-card-header>
-      <ion-list>
-        <ion-item>
-          <ion-label>ผลการตรวจสอบ</ion-label>
-          <ion-select>
-            <ion-option value="y">ใช่</ion-option>
-            <ion-option value="n">ไม่ใช่</ion-option>
-            <ion-option value="-">-</ion-option>
-            <ion-option value="">N/A</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
+      <ion-item>
+        <ion-label item-start>ผลการตรวจสอบ</ion-label>
+        <ion-segment item-content [(ngModel)]="segmentTemp">
+          <ion-segment-button value="yes">ใช่</ion-segment-button>
+          <ion-segment-button value="no">ไม่ใช่</ion-segment-button>
+          <ion-segment-button value="-">-</ion-segment-button>
+          <ion-segment-button value="na">N/A</ion-segment-button>
+        </ion-segment>
+      </ion-item>
   </ion-card>
 
   <ion-card *ngFor="let l1 of checkLists">
     <ion-card-header>
       {{ l1.name }}
     </ion-card-header>
-    <ion-list *ngIf="l1.checkable">
-      <ion-item>
-          <ion-label>ผลการตรวจสอบ</ion-label>
-          <ion-select>
-            <ion-option value="y">ใช่</ion-option>
-            <ion-option value="n">ไม่ใช่</ion-option>
-            <ion-option value="-">-</ion-option>
-            <ion-option value="">N/A</ion-option>
-          </ion-select>
-      </ion-item>
-      <ion-item>
-        <button ion-button block [navPush]="commentpage" [navParams]="l1">บันทึกความเห็น</button>
-      </ion-item>
-    </ion-list>
+    <ion-item *ngIf="l1.checkable">
+      <ion-segment [(ngModel)]="segmentTemp2">
+        <ion-segment-button value="yes">ใช่</ion-segment-button>
+        <ion-segment-button value="no">ไม่ใช่</ion-segment-button>
+        <ion-segment-button value="-">-</ion-segment-button>
+        <ion-segment-button value="na">N/A</ion-segment-button>
+      </ion-segment>
+      <button ion-button round item-end icon-left [navPush]="commentpage" [navParams]="l1">
+        <ion-icon name="checkmark"></ion-icon>
+        บันทึกความเห็น
+      </button>
+    </ion-item>
 
     <ion-card *ngFor="let l2 of l1.items">
-      <ion-card-header>
-        {{ l2.name }}
-      </ion-card-header>
-      <ion-list *ngIf="l2.checkable">
-        <ion-item>
-            <ion-label>ผลการตรวจสอบ</ion-label>
-            <ion-select>
-              <ion-option value="y">ใช่</ion-option>
-              <ion-option value="n">ไม่ใช่</ion-option>
-              <ion-option value="-">-</ion-option>
-              <ion-option value="">N/A</ion-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-          <button ion-button block [navPush]="commentpage" [navParams]="l2">บันทึกความเห็น</button>
-        </ion-item>
-      </ion-list>
+      <p padding>{{ l2.name }}</p>
+      <ion-item *ngIf="l2.checkable">
+        <ion-segment>
+          <ion-segment-button>ใช่</ion-segment-button>
+          <ion-segment-button>ไม่ใช่</ion-segment-button>
+          <ion-segment-button>-</ion-segment-button>
+          <ion-segment-button>N/A</ion-segment-button>
+        </ion-segment>
+        <button ion-button round item-end icon-left [navPush]="commentpage" [navParams]="l2">
+          <ion-icon name="checkmark"></ion-icon>
+          บันทึกความเห็น
+        </button>
+      </ion-item>
     </ion-card>
   </ion-card>
 

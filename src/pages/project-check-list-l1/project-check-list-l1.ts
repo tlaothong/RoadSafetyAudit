@@ -20,6 +20,9 @@ export class ProjectCheckListL1Page {
   public l0name;
   public commentpage = "ProjectCheckListCommentPage";
 
+  public segmentTemp = "";
+  public segmentTemp2 = "";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.checkByTitle = this.navParams.data.checkBy;
     this.checkLists = this.navParams.data.l0.items;

@@ -20,15 +20,13 @@
       เลือกรูปแบบการตรวจสอบ
     </ion-card-header>
     <ion-list>
-      <button ion-item [navPush]="l0page" [navParams]="byIT" hideWhen="mobile">
+      <button ion-item (click)="goPage(byIT)" hideWhen="mobile">
         <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
         ด้วยระบบสารสนเทศ
-        <ion-icon name="arrow-forward" item-end></ion-icon>
       </button>
-      <button ion-item [navPush]="l0page" [navParams]="byFields">
+      <button ion-item (click)="goPage(byFields)">
         <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
         จากภาคสนาม
-        <ion-icon name="arrow-forward" item-end></ion-icon>
       </button>
     </ion-list>
   </ion-card>
