@@ -49,6 +49,7 @@ export class CheckListsProvider {
       {
         "id": 1,
         "name": "1. ประเด็นทั่วไป",
+        "showSubItems": false,
         "items": [
           {
             "id": 1,
@@ -105,6 +106,7 @@ export class CheckListsProvider {
       {
         "id": 2,
         "name": "2. เขตก่อสร้าง",
+        "showSubItems": true,
         "items": [
           {
             "id": 1,
