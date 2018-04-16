@@ -14,7 +14,37 @@ export class CheckListsProvider {
     console.log('Hello CheckListsProvider Provider');
   }
 
+  public listCheckLists(stage: number) {
+    return [
+      { id: "11", stage: 1, name: "ทางตรง" },
+      { id: "12", stage: 1, name: "ทางโค้ง" },
+      { id: "13", stage: 1, name: "ทางแยก" },
+      { id: "14", stage: 1, name: "ทางชุมชน" },
+      { id: "21", stage: 2, name: "ระหว่างก่อสร้าง" },
+      { id: "31", stage: 3, name: "ทางตรง" },
+      { id: "32", stage: 3, name: "ทางโค้ง" },
+      { id: "33", stage: 3, name: "ทางแยก" },
+      { id: "34", stage: 3, name: "ทางชุมชน" },
+    ].filter(it => it.stage == stage);
+  }
+
   public getCheckList(listCode: string) {
+    switch (listCode) {
+      case "11":
+        return {
+          code: "11",
+          items: []
+        }
+    
+      default:
+        return {
+          code: "21",
+          items: this.getCheckList21()
+        }
+    }
+  }
+
+  private getCheckList21() {
     return [
       {
         "id": 1,

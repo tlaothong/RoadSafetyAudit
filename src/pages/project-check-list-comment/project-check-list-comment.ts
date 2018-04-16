@@ -17,6 +17,8 @@ export class ProjectCheckListCommentPage {
 
   public checkTitle;
   public assetRisks;
+  public freq;
+  public sever;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.checkTitle = this.navParams.data.name;
@@ -24,6 +26,15 @@ export class ProjectCheckListCommentPage {
 
   public saveComments() {
     this.navCtrl.pop();
+  }
+
+  public changeFreq(e) {
+    var f = 5 - e.value;
+    this.freq = f;
+  }
+  public changeSeverity(e) {
+    var s = 5 - e.value;
+    this.sever = s;
   }
 
   ionViewDidLoad() {

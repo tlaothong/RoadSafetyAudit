@@ -18,8 +18,8 @@ export class ProjectCheckMasterPage {
   @Input() project;
 
   public l0page = 'ProjectCheckListL0Page';
-  public byIT = "ตรวจสอบจากระบบสารสนเทศ";
-  public byFields = "ตรวจสอบจากงานภาคสนาม";
+  public byIT = "it"; //"ตรวจสอบจากระบบสารสนเทศ";
+  public byFields = "field"; //"ตรวจสอบจากงานภาคสนาม";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private appCtrl: App) {
     if (this.navParams.data) {
@@ -31,8 +31,8 @@ export class ProjectCheckMasterPage {
     console.log('ionViewDidLoad ProjectCheckMasterPage');
   }
 
-  public goPage(page: any) {
-    this.appCtrl.getRootNav().push(this.l0page, page);
+  public goPage(ctype: string) {
+    this.appCtrl.getRootNav().push(this.l0page, ctype == 'it'? this.project.checkListIT: this.project.checkListField);
   }
 
 }

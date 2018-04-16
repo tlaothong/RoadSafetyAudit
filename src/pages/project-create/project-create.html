@@ -21,66 +21,73 @@
       <ion-card-header>
         ขั้นตอน
       </ion-card-header>
-      <ion-list radio-group>
-        <ion-item hideWhen="mobile">
-          <ion-label>ออกแบบ</ion-label>
-          <ion-radio value="1"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>ระหว่างการก่อสร้าง</ion-label>
-          <ion-radio value="2"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>ถนนที่เปิดให้บริการแล้ว</ion-label>
-          <ion-radio value="3"></ion-radio>
-        </ion-item>
-      </ion-list>
+
+      <div padding>
+        <ion-segment [(ngModel)]="stage" name="stage" (ionChange)="roadChanged($event)">
+          <ion-segment-button value="1">
+            ออกแบบ
+          </ion-segment-button>
+          <ion-segment-button value="2">
+            ระหว่างการก่อสร้าง
+          </ion-segment-button>
+          <ion-segment-button value="3">
+            ถนนที่เปิดให้บริการแล้ว
+          </ion-segment-button>
+        </ion-segment>
+      </div>
     </ion-card>
-  
+
     <ion-card>
       <ion-card-header>
         เส้นทาง
       </ion-card-header>
-      <ion-list>
-        <ion-item>
-          <ion-label>
-            ภูมิภาค
-          </ion-label>
-          <ion-select [(ngModel)]="regionId" (ionChange)="regionChanged($event)" name="region">
-            <ion-option value="1">ภาคกลาง</ion-option>
-            <ion-option value="2">ภาคตะวันออก</ion-option>
-            <ion-option value="3">ภาคตะวันออกเฉียงเหนือ</ion-option>
-            <ion-option value="4">ภาคเหนือ</ion-option>
-            <ion-option value="5">ภาคใต้</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            สำนัก
-          </ion-label>
-          <ion-select [(ngModel)]="officeId" (ionChange)="officeChanged($event)" name="office">
-              <ion-option *ngFor="let o of officesList" [value]="o.id">{{ o.office }}</ion-option>
+
+      <ion-item>
+        <ion-label>
+          ภูมิภาค
+        </ion-label>
+        <ion-select [(ngModel)]="regionId" (ionChange)="regionChanged($event)" name="region">
+          <ion-option value="1">ภาคกลาง</ion-option>
+          <ion-option value="2">ภาคตะวันออก</ion-option>
+          <ion-option value="3">ภาคตะวันออกเฉียงเหนือ</ion-option>
+          <ion-option value="4">ภาคเหนือ</ion-option>
+          <ion-option value="5">ภาคใต้</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          สำนัก
+        </ion-label>
+        <ion-select [(ngModel)]="officeId" (ionChange)="officeChanged($event)" name="office">
+            <ion-option *ngFor="let o of officesList" [value]="o.id">{{ o.office }}</ion-option>
+        </ion-select>  
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          หน่วยงาน
+        </ion-label>
+        <ion-select [(ngModel)]="branchId" (ionChange)="branchChanged($event)" name="branch">
+            <ion-option *ngFor="let b of branchList" [value]="b.id">{{ b.branch }}</ion-option>
           </ion-select>  
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            หน่วยงาน
-          </ion-label>
-          <ion-select [(ngModel)]="branchId" (ionChange)="branchChanged($event)" name="branch">
-              <ion-option *ngFor="let b of branchList" [value]="b.id">{{ b.branch }}</ion-option>
-            </ion-select>  
-        </ion-item>
-        <ion-item>
-          <ion-icon name="logo-steam" item-start></ion-icon>
-          <ion-label>สายทาง</ion-label>
-          <!-- <ion-select formControlName="option3"> -->
-          <ion-select [(ngModel)]="selectedRoad" name="road" (ionChange)="roadChanged($event)">
-            <ion-option *ngFor="let r of roadList" [value]="r" >{{ r.road }}</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-steam" item-start></ion-icon>
+        <ion-label>สายทาง</ion-label>
+        <!-- <ion-select formControlName="option3"> -->
+        <ion-select [(ngModel)]="selectedRoad" name="road" (ionChange)="roadChanged($event)">
+          <ion-option *ngFor="let r of roadList" [value]="r" >{{ r.road }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          รายการตรวจสอบเส้นทาง
+        </ion-label>
+        <ion-select [(ngModel)]="checkListCode" (ionChange)="checkListChanged($event)" name="checkList" [disabled]="!stage">
+            <ion-option *ngFor="let c of checkList" [value]="c.id">{{ c.name }}</ion-option>
+        </ion-select>
+      </ion-item>
     </ion-card>
-  
+
     <div padding>
       <button ion-button block>สร้าง</button>
     </div>

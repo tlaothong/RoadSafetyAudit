@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CheckListsProvider } from '../../providers/check-lists/check-lists';
 
 /**
  * Generated class for the ProjectCheckListL0Page page.
@@ -20,8 +19,10 @@ export class ProjectCheckListL0Page {
   public l1page = 'ProjectCheckListL1Page';
   public checkByTitle;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private chkList: CheckListsProvider) {
-    this.checkByTitle = this.navParams.data;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    var checkList = this.navParams.data;
+    this.checkByTitle = checkList.code == 'it'? "ตรวจสอบจากระบบสารสนเทศ": "ตรวจสอบจากงานภาคสนาม";
+    this.checkLists = checkList.items;
   }
 
   public goL1Page(l0) {
@@ -31,7 +32,7 @@ export class ProjectCheckListL0Page {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProjectCheckListL0Page');
 
-    this.checkLists = this.chkList.getCheckList('123v1');
+    // this.checkLists = this.chkList.getCheckList('123v1');
   }
 
 }
