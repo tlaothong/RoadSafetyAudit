@@ -29,6 +29,10 @@ export class ProjectCheckListL0Page {
     this.navCtrl.push(this.l1page, { l0: l0, checkBy: this.checkByTitle });
   }
 
+  public toggleSubItems(item) {
+    item.open = !item.open;
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProjectCheckListL0Page');
 

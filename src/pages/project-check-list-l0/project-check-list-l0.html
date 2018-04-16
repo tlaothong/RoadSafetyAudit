@@ -19,12 +19,13 @@
   <ion-list>
 
     <ion-row *ngFor="let l0 of checkLists">
-      <ion-list-header>
-        <ion-icon *ngIf="!l0.showSubItems" name="arrow-dropright-circle" item-start></ion-icon>
-        <ion-icon *ngIf="l0.showSubItems" name="arrow-dropdown-circle" item-start></ion-icon>
+      <ion-list-header (click)="toggleSubItems(l0)">
+        <ion-icon *ngIf="!l0.showSubItems" name="checkmark-circle-outline" item-start></ion-icon>
+        <ion-icon *ngIf="l0.showSubItems && l0.open" name="arrow-dropdown-circle" item-start></ion-icon>
+        <ion-icon *ngIf="l0.showSubItems && !l0.open" name="arrow-dropright-circle" item-start></ion-icon>
         {{ l0.name }}
       </ion-list-header>
-      <ion-list *ngIf="l0.showSubItems">
+      <ion-list *ngIf="l0.showSubItems && l0.open">
         <button ion-item *ngFor="let l1 of l0.items" (click)="goL1Page(l1)" >
           <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
           {{ l1.name }}
