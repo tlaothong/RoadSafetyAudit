@@ -16,12 +16,10 @@
 <ion-content padding>
 
   <ion-card>
-      <ion-card-header>
-        {{ l0name }}
-      </ion-card-header>
-      <ion-item>
+    <p padding>{{ l0.name }}</p>
+    <ion-item>
         <ion-label item-start>ผลการตรวจสอบ</ion-label>
-        <ion-segment item-content [(ngModel)]="segmentTemp">
+        <ion-segment item-content [(ngModel)]="l0.checked">
           <ion-segment-button value="yes">ใช่</ion-segment-button>
           <ion-segment-button value="no">ไม่ใช่</ion-segment-button>
           <ion-segment-button value="-">-</ion-segment-button>
@@ -31,11 +29,9 @@
   </ion-card>
 
   <ion-card *ngFor="let l1 of checkLists">
-    <ion-card-header>
-      {{ l1.name }}
-    </ion-card-header>
+    <p padding>{{ l1.name }}</p>
     <ion-item *ngIf="l1.checkable">
-      <ion-segment [(ngModel)]="segmentTemp2">
+      <ion-segment [(ngModel)]="l1.checked">
         <ion-segment-button value="yes">ใช่</ion-segment-button>
         <ion-segment-button value="no">ไม่ใช่</ion-segment-button>
         <ion-segment-button value="-">-</ion-segment-button>
@@ -50,7 +46,7 @@
     <ion-card *ngFor="let l2 of l1.items">
       <p padding>{{ l2.name }}</p>
       <ion-item *ngIf="l2.checkable">
-        <ion-segment>
+        <ion-segment [(ngModel)]="l2.checked">
           <ion-segment-button>ใช่</ion-segment-button>
           <ion-segment-button>ไม่ใช่</ion-segment-button>
           <ion-segment-button>-</ion-segment-button>
