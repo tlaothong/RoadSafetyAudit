@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AuditorProvider } from '../../providers/auditor/auditor';
 
 /**
  * Generated class for the ProjectMembersComponent component.
@@ -7,17 +8,31 @@ import { Component } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: 'project-members',
-  templateUrl: 'project-members.html'
+	selector: 'project-members',
+	templateUrl: 'project-members.html'
 })
 export class ProjectMembersComponent {
 
-  constructor() {
-    console.log('Hello ProjectMembersComponent Component');
-  }
+	@Input() project;
 
-  public addMember() {}
+	public levels = [
+		"RSI.",
+		"RSA."
+	];
 
-  public saveMembers() {}
+	public level;
+	public ncode;
+
+	constructor(private audit: AuditorProvider) {
+		console.log('Hello ProjectMembersComponent Component');
+	}
+
+	public addMember() {
+		var aud = this.audit.getAuditor(this.level + this.ncode);
+		if (!this.project.members) {
+			this.project.members = [];
+		}
+		this.project.members.push(aud);
+	}
 
 }

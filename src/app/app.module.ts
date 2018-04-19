@@ -12,6 +12,7 @@ import { RoadsAndOfficesProvider } from '../providers/roads-and-offices/roads-an
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectRepoServiceProvider } from '../providers/project-repo-service/project-repo-service';
 import { CheckListsProvider } from '../providers/check-lists/check-lists';
+import { AuditorProvider } from '../providers/auditor/auditor';
 
 @NgModule({
 	declarations: [
@@ -36,7 +37,8 @@ import { CheckListsProvider } from '../providers/check-lists/check-lists';
 		{provide: ErrorHandler, useClass: IonicErrorHandler},
 		RoadsAndOfficesProvider,
     ProjectRepoServiceProvider,
-    CheckListsProvider
+    CheckListsProvider,
+    AuditorProvider
 	]
 })
 export class AppModule {}
