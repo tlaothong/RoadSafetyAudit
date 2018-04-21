@@ -45,7 +45,7 @@ export class ProjectCreatePage {
 	}
 
 	public branchChanged(evt) {
-		this.roadList = this.offices.roads.filter(it => this.branchId == 1);
+		this.roadList = this.offices.roads.filter(it => it.branchId == this.branchId);
 	}
 
 	public roadChanged(evt) {
