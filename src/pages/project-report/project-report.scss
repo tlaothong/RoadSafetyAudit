@@ -1,0 +1,20 @@
+page-project-report {
+
+    table {
+        border: 1px solid lightgrey;
+        border-collapse: collapse;
+        box-shadow: 0px 1px 5px grey;
+        width: 100%;
+    }
+
+    thead tr {
+        background-color: lightgrey;
+        border: 1px solid lightgrey;
+        height: 50px;
+    }
+    
+    th, td {
+        border: 1px solid lightgrey;
+        padding: 10px;
+    }
+}

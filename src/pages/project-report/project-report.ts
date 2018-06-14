@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ProjectDetailsPage page.
+ * Generated class for the ProjectReportPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,14 +10,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-project-details',
-  templateUrl: 'project-details.html',
+  selector: 'page-project-report',
+  templateUrl: 'project-report.html',
 })
-export class ProjectDetailsPage {
-
-  public tab1Root = 'ProjectInfoPage';
-  public tab2Root = 'ProjectCheckMasterPage';
-  public tab3Root = 'ProjectReportPage';
+export class ProjectReportPage {
 
   public project;
 
@@ -26,7 +22,7 @@ export class ProjectDetailsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProjectDetailsPage');
+    console.log('ionViewDidLoad ProjectReportPage');
   }
 
 }
