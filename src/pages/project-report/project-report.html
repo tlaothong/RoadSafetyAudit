@@ -206,7 +206,6 @@
           <tr *ngFor="let item of GetList(this.project.checkListField)">
             <td *ngIf="item.subTitle" colspan="4" class="title">
               <h5>{{ item.mainTitle }}</h5>
-              <br *ngIf="item.mainTitle">
               <b>{{ item.subTitle }}</b>
             </td>
             <td *ngIf="!item.subTitle">
