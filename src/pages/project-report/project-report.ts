@@ -52,27 +52,29 @@ export class ProjectReportPage {
 
   public GetList(value: any): Array<any> {
 
-    var level_1: any = value.items;
-    var level_2 = level_1.map(it => it.items);
-
-    var level_3: Array<any> = new Array<any>();
-    level_2.forEach(element_1 => {
-      element_1.forEach(element_2 => {
-
-        var hasTitle = true;
-
+    var result: Array<any> = new Array<any>();
+    value.items.forEach(element_1 => {
+      var hasMainTitle = true;
+      element_1.items.forEach(element_2 => {
+        var hasSubTitle = true;
         element_2.items.forEach(element_3 => {
-          if (hasTitle) {
-            level_3.push({ mainTitle: element_2.name })
-            hasTitle = !hasTitle;
-          }
-          level_3.push(element_3);
-        })
 
+          if (hasMainTitle) {
+            let rowTitle = { mainTitle: element_1.name, subTitle: element_2.name };
+            result.push(rowTitle)
+            hasMainTitle = !hasMainTitle;
+            hasSubTitle = !hasSubTitle;
+          }
+          else if (hasSubTitle) {
+            let rowTitle = { subTitle: element_2.name };
+            result.push(rowTitle)
+            hasSubTitle = !hasSubTitle;
+          }
+          result.push(element_3);
+
+        });
       });
     });
-
-    var result = level_3.map(it => it);
     return result;
   }
 

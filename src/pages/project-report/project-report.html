@@ -170,19 +170,20 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of GetList(this.project.checkListIT)">
-            <td *ngIf="item.mainTitle" colspan="4" class="title">
-              <b>{{ item.mainTitle }}</b>
+            <td *ngIf="item.subTitle" colspan="4" class="title">
+                <h5>{{ item.mainTitle }}</h5>
+                <b>{{ item.subTitle }}</b>
             </td>
-            <td *ngIf="!item.mainTitle">
+            <td *ngIf="!item.subTitle">
               {{ item.name }}
             </td>
-            <td *ngIf="!item.mainTitle" text-center>
+            <td *ngIf="!item.subTitle" text-center>
               <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
             </td>
-            <td *ngIf="!item.mainTitle" text-center>
+            <td *ngIf="!item.subTitle" text-center>
               <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
             </td>
-            <td *ngIf="!item.mainTitle">
+            <td *ngIf="!item.subTitle">
               <!-- Comment here -->
             </td>
           </tr>
@@ -203,21 +204,23 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of GetList(this.project.checkListField)">
-              <td *ngIf="item.mainTitle" colspan="4" class="title">
-                <b>{{ item.mainTitle }}</b>
-              </td>
-              <td *ngIf="!item.mainTitle">
-                {{ item.name }}
-              </td>
-              <td *ngIf="!item.mainTitle" text-center>
-                <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
-              </td>
-              <td *ngIf="!item.mainTitle" text-center>
-                <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
-              </td>
-              <td *ngIf="!item.mainTitle">
-                <!-- Comment here -->
-              </td>
+            <td *ngIf="item.subTitle" colspan="4" class="title">
+              <h5>{{ item.mainTitle }}</h5>
+              <br *ngIf="item.mainTitle">
+              <b>{{ item.subTitle }}</b>
+            </td>
+            <td *ngIf="!item.subTitle">
+              {{ item.name }}
+            </td>
+            <td *ngIf="!item.subTitle" text-center>
+              <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
+            </td>
+            <td *ngIf="!item.subTitle" text-center>
+              <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
+            </td>
+            <td *ngIf="!item.subTitle">
+              <!-- Comment here -->
+            </td>
           </tr>
         </tbody>
       </table>
