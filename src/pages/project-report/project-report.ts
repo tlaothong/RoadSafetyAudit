@@ -44,9 +44,10 @@ export class ProjectReportPage {
     this.ReportIt = this.project.checkListIT.items;
   }
 
-  public IsChecked(value: any): boolean {
+  public IsChecked(value: any): any {
     if (value == "yes") return true;
-    else return false;
+    else if (value == "no") return false;
+    else return null;
   }
 
   public GetList(value: any): Array<any> {
@@ -58,7 +59,13 @@ export class ProjectReportPage {
     level_2.forEach(element_1 => {
       element_1.forEach(element_2 => {
 
+        var hasTitle = true;
+
         element_2.items.forEach(element_3 => {
+          if (hasTitle) {
+            level_3.push({ mainTitle: element_2.name })
+            hasTitle = !hasTitle;
+          }
           level_3.push(element_3);
         })
 

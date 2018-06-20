@@ -170,14 +170,21 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of GetList(this.project.checkListIT)">
-            <td>{{ item.name }}</td>
-            <td text-center>
-              <ion-icon *ngIf="IsChecked(item.checkable)" name="checkmark"></ion-icon>
+            <td *ngIf="item.mainTitle" colspan="4" class="title">
+              <b>{{ item.mainTitle }}</b>
             </td>
-            <td text-center>
-              <ion-icon *ngIf="!IsChecked(item.checkable)" name="close"></ion-icon>
+            <td *ngIf="!item.mainTitle">
+              {{ item.name }}
             </td>
-            <td></td>
+            <td *ngIf="!item.mainTitle" text-center>
+              <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
+            </td>
+            <td *ngIf="!item.mainTitle" text-center>
+              <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
+            </td>
+            <td *ngIf="!item.mainTitle">
+              <!-- Comment here -->
+            </td>
           </tr>
         </tbody>
       </table>
@@ -196,14 +203,21 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of GetList(this.project.checkListField)">
-            <td>{{ item.name }}</td>
-            <td text-center>
-              <ion-icon *ngIf="IsChecked(item.checkable)" name="checkmark"></ion-icon>
-            </td>
-            <td text-center>
-              <ion-icon *ngIf="!IsChecked(item.checkable)" name="close"></ion-icon>
-            </td>
-            <td></td>
+              <td *ngIf="item.mainTitle" colspan="4" class="title">
+                <b>{{ item.mainTitle }}</b>
+              </td>
+              <td *ngIf="!item.mainTitle">
+                {{ item.name }}
+              </td>
+              <td *ngIf="!item.mainTitle" text-center>
+                <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
+              </td>
+              <td *ngIf="!item.mainTitle" text-center>
+                <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
+              </td>
+              <td *ngIf="!item.mainTitle">
+                <!-- Comment here -->
+              </td>
           </tr>
         </tbody>
       </table>
