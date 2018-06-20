@@ -18,12 +18,15 @@
   <!-- Heading -->
   <div text-center>
     <h1>รายงานการตรวจสอบความปลอดภัยงานทาง</h1>
-    <h2>ขั้นตอน (Todo)</h2>
+    <h2>ขั้นตอน {{ mainStage }}</h2>
 
     <br>
     <p>โครงการ {{ project.name }}</p>
-    <p>สายทาง (Todo) ชื่อสายทาง (Todo)</p>
-    <p>จุดเริ่มต้นโครงการ (Todo) จุดสิ้นสุดโครงการ (Todo)</p>
+    <p>สายทาง {{ project.name }} ชื่อสายทาง {{ project.name }}</p>
+    <p>
+      จุดเริ่มต้นโครงการ ละติจูด {{ project.startN }} ลองกิจูด {{ project.startE }} จุดสิ้นสุดโครงการ ละติจูด {{ project.endN }}
+      ลองกิจูด {{ project.endE }}
+    </p>
     <p>วันที่เริ่มทำการตรวจสอบ (Todo) วันสิ้นสุดการตรวจสอบ (Todo)</p>
     <br>
   </div>
@@ -33,27 +36,32 @@
   <!-- Body -->
   <div>
 
+    <!-- StageText(project.checkListIT) -->
+
     <!-- Ttile Content -->
     <div text-center>
       <br>
-      <h2>การตรวจสอบความปลอดภัยงานทาง ขั้นตอน (Todo)</h2>
-      <h3>โครงการ {{ project.name }} สายทาง (Todo)</h3>
-      <br><br>
+      <h2>การตรวจสอบความปลอดภัยงานทาง ขั้นตอน {{ mainStage }}</h2>
+      <h3>โครงการ {{ project.name }} สายทาง {{ project.name }}</h3>
+      <br>
+      <br>
     </div>
 
     <!-- Content -->
     <div>
+
       <p>
         <b>1. ข้อมูลโครงการ</b>
       </p>
       <p style="text-indent: 25px">1.1.รหัสสายทาง : (Todo)</p>
-      <p style="text-indent: 25px">1.2.ชื่อสายทาง: (Todo)</p>
-      <p style="text-indent: 25px">1.3.พิกัดเริ่มต้น: (Todo)</p>
-      <p style="text-indent: 25px">1.4.พิกัดสิ้นสุด: (Todo)</p>
+      <p style="text-indent: 25px">1.2.ชื่อสายทาง: {{ project.name }}</p>
+      <p style="text-indent: 25px">1.3.พิกัดเริ่มต้น: ละติจูด {{ project.startN }} ลองกิจูด {{ project.startE }}</p>
+      <p style="text-indent: 25px">1.4.พิกัดสิ้นสุด: ละติจูด {{ project.endN }} ลองกิจูด {{ project.endE }}</p>
       <p style="text-indent: 25px">1.5.ระยะทาง: (Todo)</p>
       <br>
 
-      <p>
+      <div>
+        <!-- <p>
         <b>2. รายชื่อผู้ตรวจสอบความปลอดภัยทางถนน</b>
       </p>
       <p style="text-indent: 25px">2.1.คำนำหน้าชื่อ (Todo) ชื่อ (Todo) นามสกุล (Todo) ID ผู้ตรวจสอบ (Todo) ตำแหน่งในทีม (Todo) เบอร์ติดต่อ (Todo)</p>
@@ -145,7 +153,61 @@
             <td>(Todo)</td>
           </tr>
         </tbody>
+      </table> -->
+      </div>
+
+      <p>
+        <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): ด้วยระบบสารสนเทศ</b>
+      </p>
+      <table col-12>
+        <thead>
+          <tr>
+            <th>ประเด็น</th>
+            <th width="25">ใช่</th>
+            <th width="25">ไม่ใช่</th>
+            <th>ข้อคิดเห็น</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of GetList(this.project.checkListIT)">
+            <td>{{ item.name }}</td>
+            <td text-center>
+              <ion-icon *ngIf="IsChecked(item.checkable)" name="checkmark"></ion-icon>
+            </td>
+            <td text-center>
+              <ion-icon *ngIf="!IsChecked(item.checkable)" name="close"></ion-icon>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
       </table>
+      <br>
+      <p>
+        <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): จากภาคสนาม</b>
+      </p>
+      <table col-12>
+        <thead>
+          <tr>
+            <th>ประเด็น</th>
+            <th width="25">ใช่</th>
+            <th width="25">ไม่ใช่</th>
+            <th>ข้อคิดเห็น</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of GetList(this.project.checkListField)">
+            <td>{{ item.name }}</td>
+            <td text-center>
+              <ion-icon *ngIf="IsChecked(item.checkable)" name="checkmark"></ion-icon>
+            </td>
+            <td text-center>
+              <ion-icon *ngIf="!IsChecked(item.checkable)" name="close"></ion-icon>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
 
     </div>
   </div>
