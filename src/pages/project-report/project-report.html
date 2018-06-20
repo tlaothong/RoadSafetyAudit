@@ -23,10 +23,10 @@
     <br>
     <p>โครงการ {{ project.name }}</p>
     <p>สายทาง {{ project.name }} ชื่อสายทาง {{ project.name }}</p>
-    <p>
-      จุดเริ่มต้นโครงการ ละติจูด {{ project.startN }} ลองกิจูด {{ project.startE }} จุดสิ้นสุดโครงการ ละติจูด {{ project.endN }}
-      ลองกิจูด {{ project.endE }}
-    </p>
+    
+    <!-- นำข้อมูลจริงมาจากหน้า (project-check-point) -->
+    <!-- Example: จุดเริ่มต้นโครงการ กม.0+000 จุดสิ้นสุดโครงการ กม.0+200 -->
+    <p>จุดเริ่มต้นโครงการ (Todo) จุดสิ้นสุดโครงการ (Todo)</p>
     <p>วันที่เริ่มทำการตรวจสอบ (Todo) วันสิ้นสุดการตรวจสอบ (Todo)</p>
     <br>
   </div>
@@ -171,8 +171,8 @@
         <tbody>
           <tr *ngFor="let item of GetList(this.project.checkListIT)">
             <td *ngIf="item.subTitle" colspan="4" class="title">
-                <h5>{{ item.mainTitle }}</h5>
-                <b>{{ item.subTitle }}</b>
+              <h5>{{ item.mainTitle }}</h5>
+              <b>{{ item.subTitle }}</b>
             </td>
             <td *ngIf="!item.subTitle">
               {{ item.name }}
