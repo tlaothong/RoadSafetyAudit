@@ -39,13 +39,7 @@ export class ProjectReportPage {
     else if (subStage == "3") this.subStage = "ทางแยก";
     else if (subStage == "4") this.subStage = "ทางชุมชน";
   }
-
-  public IsChecked(value: any): any {
-    if (value == "yes") return true;
-    else if (value == "no") return false;
-    else return null;
-  }
-
+  
   public GetList(value: any): Array<any> {
 
     var result: Array<any> = new Array<any>();

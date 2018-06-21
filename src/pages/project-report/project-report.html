@@ -178,10 +178,10 @@
               {{ item.name }}
             </td>
             <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
+              <ion-icon *ngIf="item.checked == 'yes'" name="checkmark"></ion-icon>
             </td>
             <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
+              <ion-icon *ngIf="item.checked == 'no'" name="close"></ion-icon>
             </td>
             <td *ngIf="!(item.title || item.subTitle)">
               <!-- Comment here -->
@@ -213,10 +213,10 @@
               {{ item.name }}
             </td>
             <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
+              <ion-icon *ngIf="item.checked == 'yes'" name="checkmark"></ion-icon>
             </td>
             <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
+              <ion-icon *ngIf="item.checked == 'no'" name="close"></ion-icon>
             </td>
             <td *ngIf="!(item.title || item.subTitle)">
               <!-- Comment here -->
