@@ -23,7 +23,7 @@
     <br>
     <p>โครงการ {{ project.name }}</p>
     <p>สายทาง {{ project.name }} ชื่อสายทาง {{ project.name }}</p>
-    
+
     <!-- นำข้อมูลจริงมาจากหน้า (project-check-point) -->
     <!-- Example: จุดเริ่มต้นโครงการ กม.0+000 จุดสิ้นสุดโครงการ กม.0+200 -->
     <p>จุดเริ่มต้นโครงการ (Todo) จุดสิ้นสุดโครงการ (Todo)</p>
@@ -156,68 +156,69 @@
       </table> -->
       </div>
 
-      <p>
+      <h4>
         <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): ด้วยระบบสารสนเทศ</b>
-      </p>
+      </h4>
       <table col-12>
         <thead>
           <tr>
             <th>ประเด็น</th>
-            <th width="25">ใช่</th>
-            <th width="25">ไม่ใช่</th>
+            <th width="50">ใช่</th>
+            <th width="50">ไม่ใช่</th>
             <th>ข้อคิดเห็น</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of GetList(this.project.checkListIT)">
-            <td *ngIf="item.subTitle" colspan="4" class="title">
-              <h5>{{ item.mainTitle }}</h5>
+            <td *ngIf="item.title || item.subTitle" colspan="4" class="title">
+              <h5>{{ item.title }}</h5>
               <b>{{ item.subTitle }}</b>
             </td>
-            <td *ngIf="!item.subTitle">
+            <td *ngIf="!(item.title || item.subTitle)">
               {{ item.name }}
             </td>
-            <td *ngIf="!item.subTitle" text-center>
+            <td *ngIf="!(item.title || item.subTitle)" text-center>
               <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
             </td>
-            <td *ngIf="!item.subTitle" text-center>
+            <td *ngIf="!(item.title || item.subTitle)" text-center>
               <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
             </td>
-            <td *ngIf="!item.subTitle">
+            <td *ngIf="!(item.title || item.subTitle)">
               <!-- Comment here -->
             </td>
           </tr>
         </tbody>
       </table>
       <br>
-      <p>
+
+      <h4>
         <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): จากภาคสนาม</b>
-      </p>
+      </h4>
       <table col-12>
         <thead>
           <tr>
             <th>ประเด็น</th>
-            <th width="25">ใช่</th>
-            <th width="25">ไม่ใช่</th>
+            <th width="50">ใช่</th>
+            <th width="50">ไม่ใช่</th>
             <th>ข้อคิดเห็น</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of GetList(this.project.checkListField)">
-            <td *ngIf="item.subTitle" colspan="4" class="title">
-              <h5>{{ item.mainTitle }}</h5>
+            <td *ngIf="item.title || item.subTitle" colspan="4" class="title">
+              <h5>{{ item.title }}</h5>
               <b>{{ item.subTitle }}</b>
             </td>
-            <td *ngIf="!item.subTitle">
+            <td *ngIf="!(item.title || item.subTitle)">
               {{ item.name }}
             </td>
-            <td *ngIf="!item.subTitle" text-center>
+            <td *ngIf="!(item.title || item.subTitle)" text-center>
               <ion-icon *ngIf="IsChecked(item.checkable) == true" name="checkmark"></ion-icon>
             </td>
-            <td *ngIf="!item.subTitle" text-center>
+            <td *ngIf="!(item.title || item.subTitle)" text-center>
               <ion-icon *ngIf="IsChecked(item.checkable) == false" name="close"></ion-icon>
             </td>
-            <td *ngIf="!item.subTitle">
+            <td *ngIf="!(item.title || item.subTitle)">
               <!-- Comment here -->
             </td>
           </tr>

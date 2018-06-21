@@ -19,8 +19,6 @@ export class ProjectReportPage {
   public mainStage: any;
   public subStage: any;
 
-  public ReportIt: any;
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.project = this.navParams.data;
 
@@ -40,8 +38,6 @@ export class ProjectReportPage {
     else if (subStage == "2") this.subStage = "ทางโค้ง";
     else if (subStage == "3") this.subStage = "ทางแยก";
     else if (subStage == "4") this.subStage = "ทางชุมชน";
-
-    this.ReportIt = this.project.checkListIT.items;
   }
 
   public IsChecked(value: any): any {
@@ -56,23 +52,36 @@ export class ProjectReportPage {
     value.items.forEach(element_1 => {
       var hasMainTitle = true;
       element_1.items.forEach(element_2 => {
-        var hasSubTitle = true;
-        element_2.items.forEach(element_3 => {
 
+        if (element_2.items != null) {
+
+          var hasSubTitle = true;
+          element_2.items.forEach(element_3 => {
+
+            if (hasMainTitle) {
+              let rowTitle = { title: element_1.name, subTitle: element_2.name };
+              result.push(rowTitle)
+              hasMainTitle = !hasMainTitle;
+              hasSubTitle = !hasSubTitle;
+            }
+            else if (hasSubTitle) {
+              let rowTitle = { subTitle: element_2.name };
+              result.push(rowTitle)
+              hasSubTitle = !hasSubTitle;
+            }
+            result.push(element_3);
+
+          });
+        }
+        else {
           if (hasMainTitle) {
-            let rowTitle = { mainTitle: element_1.name, subTitle: element_2.name };
+            let rowTitle = { title: element_1.name };
             result.push(rowTitle)
             hasMainTitle = !hasMainTitle;
-            hasSubTitle = !hasSubTitle;
           }
-          else if (hasSubTitle) {
-            let rowTitle = { subTitle: element_2.name };
-            result.push(rowTitle)
-            hasSubTitle = !hasSubTitle;
-          }
-          result.push(element_3);
+          result.push(element_2);
+        }
 
-        });
       });
     });
     return result;
