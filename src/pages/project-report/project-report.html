@@ -23,11 +23,9 @@
     <br>
     <p>โครงการ {{ project.name }}</p>
     <p>สายทาง {{ project.name }} ชื่อสายทาง {{ project.name }}</p>
-
-    <!-- นำข้อมูลจริงมาจากหน้า (project-check-point) -->
-    <!-- Example: จุดเริ่มต้นโครงการ กม.0+000 จุดสิ้นสุดโครงการ กม.0+200 -->
-    <p>จุดเริ่มต้นโครงการ (Todo) จุดสิ้นสุดโครงการ (Todo)</p>
-    <p>วันที่เริ่มทำการตรวจสอบ (Todo) วันสิ้นสุดการตรวจสอบ (Todo)</p>
+    <p>จุดเริ่มต้นโครงการ กม.{{ project.startDistance }}+{{ project.startDistanceOverlap }} จุดสิ้นสุดโครงการ กม.{{ project.endDistance
+      }}+{{ project.endDistanceOverlap }}</p>
+    <p>วันที่เริ่มทำการตรวจสอบ XXXXXXX วันสิ้นสุดการตรวจสอบ XXXXXXX </p>
     <br>
   </div>
 
@@ -35,8 +33,6 @@
 
   <!-- Body -->
   <div>
-
-    <!-- StageText(project.checkListIT) -->
 
     <!-- Ttile Content -->
     <div text-center>
@@ -50,180 +46,210 @@
     <!-- Content -->
     <div>
 
-      <p>
-        <b>1. ข้อมูลโครงการ</b>
-      </p>
-      <p style="text-indent: 25px">1.1.รหัสสายทาง : (Todo)</p>
-      <p style="text-indent: 25px">1.2.ชื่อสายทาง: {{ project.name }}</p>
-      <p style="text-indent: 25px">1.3.พิกัดเริ่มต้น: ละติจูด {{ project.startN }} ลองกิจูด {{ project.startE }}</p>
-      <p style="text-indent: 25px">1.4.พิกัดสิ้นสุด: ละติจูด {{ project.endN }} ลองกิจูด {{ project.endE }}</p>
-      <p style="text-indent: 25px">1.5.ระยะทาง: (Todo)</p>
+      <!-- ข้อมูลโครงการ -->
+      <div>
+        <p>
+          <b>1. ข้อมูลโครงการ</b>
+        </p>
+        <ol>
+          <li>
+            <p>รหัสสายทาง : {{ road.code }}</p>
+          </li>
+          <li>
+            <p>ชื่อสายทาง: {{ project.name }}</p>
+          </li>
+          <li>
+            <p>พิกัดเริ่มต้น: ละติจูด {{ project.startN }} ลองกิจูด {{ project.startE }}</p>
+          </li>
+          <li>
+            <p>พิกัดสิ้นสุด: ละติจูด {{ project.endN }} ลองกิจูด {{ project.endE }}</p>
+          </li>
+          <li>
+            <p>ระยะทาง: {{ road.lengthInKm }} กม.</p>
+          </li>
+        </ol>
+      </div>
       <br>
 
+      <!-- รายชื่อผู้ตรวจสอบความปลอดภัยทางถนน -->
+      <div>
+        <p>
+          <b>2. รายชื่อผู้ตรวจสอบความปลอดภัยทางถนน</b>
+        </p>
+        <ol *ngIf="project.members">
+          <li *ngFor="let item of project.members">
+            <p>ชื่อ {{ item.name }} ID ผู้ตรวจสอบ {{ item.code }} ตำแหน่งในทีม {{ item.position }}</p>
+          </li>
+        </ol>
+        <p *ngIf="!project.members" style="text-indent: 25px">ยังไม่มีข้อมูลรายชื่อผู้ตรวจสอบ</p>
+      </div>
+      <br>
+
+      <!-- Unused code -->
       <div>
         <!-- <p>
-        <b>2. รายชื่อผู้ตรวจสอบความปลอดภัยทางถนน</b>
-      </p>
-      <p style="text-indent: 25px">2.1.คำนำหน้าชื่อ (Todo) ชื่อ (Todo) นามสกุล (Todo) ID ผู้ตรวจสอบ (Todo) ตำแหน่งในทีม (Todo) เบอร์ติดต่อ (Todo)</p>
-      <p style="text-indent: 25px">2.2.คำนำหน้าชื่อ (Todo) ชื่อ (Todo) นามสกุล (Todo) ID ผู้ตรวจสอบ (Todo) ตำแหน่งในทีม (Todo) เบอร์ติดต่อ (Todo)</p>
-      <br>
+          <b>3. ประเด็นด้านความปลอดภัยที่พบจากการตรวจสอบโดยใช้ระบบเทคโนโลยีสารสนเทศ</b>
+        </p>
+        <table col-12>
+          <thead>
+            <tr>
+              <th>ลักษณะที่ทำการประเมิน</th>
+              <th>ภาพประกอบ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>ลักษณะของบริเวณที่ตรวจสอบ : (Todo)</p>
+                <p>ประเด็นที่ทำการตรวจสอบ : (Todo)</p>
+                <p>ประเด็นรองที่ทำการตรวจสอบ : (Todo)</p>
+                <p>ประเด็นที่ตรวจพบ : (Todo)</p>
+                <p>รายละเอียดเพิ่มเติมประเด็นปัญหาที่ตรวจพบ : (Todo)</p>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
 
-      <p>
-        <b>3. ประเด็นด้านความปลอดภัยที่พบจากการตรวจสอบโดยใช้ระบบเทคโนโลยีสารสนเทศ</b>
-      </p>
-      <table col-12>
-        <thead>
-          <tr>
-            <th>ลักษณะที่ทำการประเมิน</th>
-            <th>ภาพประกอบ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <p>ลักษณะของบริเวณที่ตรวจสอบ : (Todo)</p>
-              <p>ประเด็นที่ทำการตรวจสอบ : (Todo)</p>
-              <p>ประเด็นรองที่ทำการตรวจสอบ : (Todo)</p>
-              <p>ประเด็นที่ตรวจพบ : (Todo)</p>
-              <p>รายละเอียดเพิ่มเติมประเด็นปัญหาที่ตรวจพบ : (Todo)</p>
-            </td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
+        <p>
+          <b>4. ประเด็นด้านความปลอดภัยที่พบจากการตรวจสอบภาคสนาม</b>
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>ลักษณะที่ทำการประเมิน</th>
+              <th>ภาพประกอบ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>ลักษณะของบริเวณที่ตรวจสอบ : (Todo)</p>
+                <p>ประเด็นที่ทำการตรวจสอบ : (Todo)</p>
+                <p>ประเด็นรองที่ทำการตรวจสอบ : (Todo)</p>
+                <p>ประเด็นที่ตรวจพบ : (Todo)</p>
+                <p>รายละเอียดเพิ่มเติมประเด็นปัญหาที่ตรวจพบ : (Todo)</p>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
 
-      <p>
-        <b>4. ประเด็นด้านความปลอดภัยที่พบจากการตรวจสอบภาคสนาม</b>
-      </p>
-      <table>
-        <thead>
-          <tr>
-            <th>ลักษณะที่ทำการประเมิน</th>
-            <th>ภาพประกอบ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <p>ลักษณะของบริเวณที่ตรวจสอบ : (Todo)</p>
-              <p>ประเด็นที่ทำการตรวจสอบ : (Todo)</p>
-              <p>ประเด็นรองที่ทำการตรวจสอบ : (Todo)</p>
-              <p>ประเด็นที่ตรวจพบ : (Todo)</p>
-              <p>รายละเอียดเพิ่มเติมประเด็นปัญหาที่ตรวจพบ : (Todo)</p>
-            </td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-
-      <p>
-        <b>5. สรุปประเด็นความปลอดภัยที่พบและข้อเสนอแนะแนวทางแก้ไข</b>
-      </p>
-      <table col-12>
-        <thead>
-          <tr>
-            <th>ประเด็นที่ตรวจสอบ</th>
-            <th>ข้อแนะนำการแก้ปัญหา</th>
-            <th>ความถี่ของอุบัติเหตุที่อาจเกิดขึ้น</th>
-            <th>ความรุนแรงของอุบัติเหตุที่อาจเกิด</th>
-            <th>ระดับความเสี่ยง</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="5">
-              ลักษณะของบริเวณที่ตรวจสอบ : (Todo)
-            </td>
-          </tr>
-          <tr>
-            <td colspan="5">
-              ประเด็นที่ทำการตรวจสอบ : (Todo)
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>ประเด็นที่ตรวจพบ : (Todo)</p>
-              <p>รายละเอียดเพิ่มเติมประเด็นปัญหาที่ตรวจพบ : (Todo)</p>
-            </td>
-            <td>ข้อเสนอแนะการแก้ไขปัญหา : (Todo)</td>
-            <td>(Todo)</td>
-            <td>(Todo)</td>
-            <td>(Todo)</td>
-          </tr>
-        </tbody>
-      </table> -->
+        <p>
+          <b>5. สรุปประเด็นความปลอดภัยที่พบและข้อเสนอแนะแนวทางแก้ไข</b>
+        </p>
+        <table col-12>
+          <thead>
+            <tr>
+              <th>ประเด็นที่ตรวจสอบ</th>
+              <th>ข้อแนะนำการแก้ปัญหา</th>
+              <th>ความถี่ของอุบัติเหตุที่อาจเกิดขึ้น</th>
+              <th>ความรุนแรงของอุบัติเหตุที่อาจเกิด</th>
+              <th>ระดับความเสี่ยง</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="5">
+                ลักษณะของบริเวณที่ตรวจสอบ : (Todo)
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                ประเด็นที่ทำการตรวจสอบ : (Todo)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>ประเด็นที่ตรวจพบ : (Todo)</p>
+                <p>รายละเอียดเพิ่มเติมประเด็นปัญหาที่ตรวจพบ : (Todo)</p>
+              </td>
+              <td>ข้อเสนอแนะการแก้ไขปัญหา : (Todo)</td>
+              <td>(Todo)</td>
+              <td>(Todo)</td>
+              <td>(Todo)</td>
+            </tr>
+          </tbody>
+        </table> -->
       </div>
 
-      <h4>
-        <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): ด้วยระบบสารสนเทศ</b>
-      </h4>
-      <table col-12>
-        <thead>
-          <tr>
-            <th>ประเด็น</th>
-            <th width="50">ใช่</th>
-            <th width="50">ไม่ใช่</th>
-            <th>ข้อคิดเห็น</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of GetList(this.project.checkListIT)">
-            <td *ngIf="item.title || item.subTitle" colspan="4" class="title">
-              <h5>{{ item.title }}</h5>
-              <b>{{ item.subTitle }}</b>
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)">
-              {{ item.name }}
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="item.checked == 'yes'" name="checkmark"></ion-icon>
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="item.checked == 'no'" name="close"></ion-icon>
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)">
-              <!-- Comment here -->
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- รายการตรวจสอบ: ด้วยระบบสารสนเทศ -->
+      <div>
+        <h4>
+          <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): ด้วยระบบสารสนเทศ</b>
+        </h4>
+        <table col-12>
+          <thead>
+            <tr>
+              <th>ประเด็น</th>
+              <th width="50">ใช่</th>
+              <th width="50">ไม่ใช่</th>
+              <th>ข้อคิดเห็น</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of GetList(this.project.checkListIT)">
+              <td *ngIf="item.title || item.subTitle" colspan="4" class="title">
+                <h5>{{ item.title }}</h5>
+                <b>{{ item.subTitle }}</b>
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)">
+                {{ item.name }}
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)" text-center>
+                <ion-icon *ngIf="item.checked == 'yes'" name="checkmark"></ion-icon>
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)" text-center>
+                <ion-icon *ngIf="item.checked == 'no'" name="close"></ion-icon>
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)">
+                <!-- Comment here -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
       <br>
 
-      <h4>
-        <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): จากภาคสนาม</b>
-      </h4>
-      <table col-12>
-        <thead>
-          <tr>
-            <th>ประเด็น</th>
-            <th width="50">ใช่</th>
-            <th width="50">ไม่ใช่</th>
-            <th>ข้อคิดเห็น</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of GetList(this.project.checkListField)">
-            <td *ngIf="item.title || item.subTitle" colspan="4" class="title">
-              <h5>{{ item.title }}</h5>
-              <b>{{ item.subTitle }}</b>
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)">
-              {{ item.name }}
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="item.checked == 'yes'" name="checkmark"></ion-icon>
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)" text-center>
-              <ion-icon *ngIf="item.checked == 'no'" name="close"></ion-icon>
-            </td>
-            <td *ngIf="!(item.title || item.subTitle)">
-              <!-- Comment here -->
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- รายการตรวจสอบ: จากภาคสนาม -->
+      <div>
+        <h4>
+          <b>รายการตรวจสอบสําหรับ{{ mainStage }} ({{ subStage }}): จากภาคสนาม</b>
+        </h4>
+        <table col-12>
+          <thead>
+            <tr>
+              <th>ประเด็น</th>
+              <th width="50">ใช่</th>
+              <th width="50">ไม่ใช่</th>
+              <th>ข้อคิดเห็น</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of GetList(this.project.checkListField)">
+              <td *ngIf="item.title || item.subTitle" colspan="4" class="title">
+                <h5>{{ item.title }}</h5>
+                <b>{{ item.subTitle }}</b>
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)">
+                {{ item.name }}
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)" text-center>
+                <ion-icon *ngIf="item.checked == 'yes'" name="checkmark"></ion-icon>
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)" text-center>
+                <ion-icon *ngIf="item.checked == 'no'" name="close"></ion-icon>
+              </td>
+              <td *ngIf="!(item.title || item.subTitle)">
+                <!-- Comment here -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <br>
 
     </div>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { RoadsAndOfficesProvider } from '../../providers/roads-and-offices/roads-and-offices';
+
 /**
  * Generated class for the ProjectReportPage page.
  *
@@ -18,8 +20,9 @@ export class ProjectReportPage {
   public project: any;
   public mainStage: any;
   public subStage: any;
+  public road: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private offices: RoadsAndOfficesProvider) {
     this.project = this.navParams.data;
 
     // Convert number of stage into Text
@@ -38,8 +41,10 @@ export class ProjectReportPage {
     else if (subStage == "2") this.subStage = "ทางโค้ง";
     else if (subStage == "3") this.subStage = "ทางแยก";
     else if (subStage == "4") this.subStage = "ทางชุมชน";
+
+    this.road = this.offices.roads.filter(it => it.road == this.project.name)[0];
   }
-  
+
   public GetList(value: any): Array<any> {
 
     var result: Array<any> = new Array<any>();
