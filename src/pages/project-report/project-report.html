@@ -22,7 +22,7 @@
 
     <br>
     <p>โครงการ {{ project.name }}</p>
-    <p>สายทาง {{ project.name }} ชื่อสายทาง {{ project.name }}</p>
+    <p>สายทาง {{ project.roadName }} ชื่อสายทาง {{ project.roadName }}</p>
     <p>จุดเริ่มต้นโครงการ กม.{{ project.startDistance }}+{{ project.startDistanceOverlap }} จุดสิ้นสุดโครงการ กม.{{ project.endDistance
       }}+{{ project.endDistanceOverlap }}</p>
     <p>วันที่เริ่มทำการตรวจสอบ XXXXXXX วันสิ้นสุดการตรวจสอบ XXXXXXX </p>
@@ -38,7 +38,7 @@
     <div text-center>
       <br>
       <h2>การตรวจสอบความปลอดภัยงานทาง ขั้นตอน {{ mainStage }}</h2>
-      <h3>โครงการ {{ project.name }} สายทาง {{ project.name }}</h3>
+      <h3>โครงการ {{ project.name }} สายทาง {{ project.roadName }}</h3>
       <br>
       <br>
     </div>
@@ -56,7 +56,7 @@
             <p>รหัสสายทาง : {{ road.code }}</p>
           </li>
           <li>
-            <p>ชื่อสายทาง: {{ project.name }}</p>
+            <p>ชื่อสายทาง: {{ project.roadName }}</p>
           </li>
           <li>
             <p>พิกัดเริ่มต้น: ละติจูด {{ project.startN }} ลองกิจูด {{ project.startE }}</p>

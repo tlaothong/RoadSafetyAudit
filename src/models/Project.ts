@@ -6,6 +6,7 @@ export class Project {
 	constructor(
 		public id: number,
 		public name: string,
+		public roadName: string,
 		public checkListCode: string,
 		public startN: number,
 		public startE: number,

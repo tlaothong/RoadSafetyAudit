@@ -42,7 +42,7 @@ export class ProjectReportPage {
     else if (subStage == "3") this.subStage = "ทางแยก";
     else if (subStage == "4") this.subStage = "ทางชุมชน";
 
-    this.road = this.offices.roads.filter(it => it.road == this.project.name)[0];
+    this.road = this.offices.roads.filter(it => it.road == this.project.roadName)[0];
   }
 
   public GetList(value: any): Array<any> {

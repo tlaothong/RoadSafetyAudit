@@ -57,6 +57,7 @@ export class ProjectCreatePage {
 
 	public doCreateProject() {
 		this.createdProject = this.projectRepo.createProject(this.selectedRoad.road,
+			this.selectedRoad.road,
 			this.checkListCode,
 			this.selectedRoad.startN, this.selectedRoad.startE, this.selectedRoad.endN, this.selectedRoad.endE);
 		this.navCtrl.pop();

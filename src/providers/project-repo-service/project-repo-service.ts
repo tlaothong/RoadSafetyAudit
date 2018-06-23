@@ -23,8 +23,8 @@ export class ProjectRepoServiceProvider {
   }
 
   private id = 0;
-  public createProject(prjName: string, checkListCode: string, startN: number, startE: number, endN: number, endE: number) {
-    var prj = new Project(++this.id, prjName, checkListCode, startN, startE, endN, endE);
+  public createProject(prjName: string, roadName: string, checkListCode: string, startN: number, startE: number, endN: number, endE: number) {
+    var prj = new Project(++this.id, prjName, roadName, checkListCode, startN, startE, endN, endE);
     prj.checkListIT = this.chkList.getCheckList(checkListCode);
     prj.checkListIT.code = "it";
     prj.checkListField = this.chkList.getCheckList(checkListCode);
