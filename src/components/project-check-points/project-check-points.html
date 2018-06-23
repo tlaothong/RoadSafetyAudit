@@ -3,6 +3,11 @@
 <form (ngSubmit)="saveCheckPoints()" class="form">
 
   <ion-card>
+    <ion-card-header>ชื่อโครงการ</ion-card-header>
+    <ion-input [(ngModel)]="project.name" name="name" type="text" placeholder="ชื่อโครงการ"></ion-input>
+  </ion-card>
+
+  <ion-card>
     <ion-card-header>
       <ion-icon name="pin" item-start></ion-icon>
       กม.
